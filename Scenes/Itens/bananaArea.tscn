@@ -86,6 +86,7 @@ tracks/2/keys = {
 }
 
 [node name="bananaArea" instance=ExtResource( 1 )]
+fruits = 2
 
 [node name="item" parent="." index="0"]
 texture = ExtResource( 3 )

@@ -14,6 +14,10 @@ config/name="QuimicaPlataforma"
 run/main_scene="res://Scenes/Game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Scripts/Global.gb.gd"
+
 [display]
 
 window/size/width=320
