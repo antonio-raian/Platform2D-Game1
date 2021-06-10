@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+var up = Vector2.UP
 var vel = Vector2.ZERO
 var move_speed = 520
 var gravity = 1000
@@ -22,7 +23,7 @@ func _physics_process(delta):
 	if !hurted:
 		_get_input()
 		
-	vel = move_and_slide(vel)
+	vel = move_and_slide(vel, up)
 	is_grounded = _check_is_grounded()
 	
 	_set_animation()

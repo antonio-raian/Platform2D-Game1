@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/Pixel Adventure 1/Main Characters/Virtual Guy/Hit (32x32).png" type="Texture" id=5]
 [ext_resource path="res://Assets/Pixel Adventure 1/Main Characters/Virtual Guy/Fall (32x32).png" type="Texture" id=6]
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=1]
 resource_name = "fall"
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite:texture")
@@ -46,7 +46,7 @@ tracks/2/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "hit"
 length = 0.8
 loop = true
@@ -87,8 +87,7 @@ tracks/2/keys = {
 "values": [ 7 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "idle"
+[sub_resource type="Animation" id=3]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite:frame")
@@ -127,8 +126,7 @@ tracks/2/keys = {
 "values": [ 11 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "jump"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
@@ -166,8 +164,7 @@ tracks/2/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "run"
+[sub_resource type="Animation" id=5]
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -210,7 +207,7 @@ tracks/2/keys = {
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 10, 12.3732 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 11, 8 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -228,11 +225,11 @@ hframes = 12
 
 [node name="animation" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/fall = SubResource( 7 )
-anims/hit = SubResource( 5 )
-anims/idle = SubResource( 1 )
-anims/jump = SubResource( 3 )
-anims/run = SubResource( 4 )
+anims/fall = SubResource( 1 )
+anims/hit = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/jump = SubResource( 4 )
+anims/run = SubResource( 5 )
 
 [node name="colision" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
@@ -244,13 +241,13 @@ shape = SubResource( 6 )
 position = Vector2( -6, 8 )
 enabled = true
 cast_to = Vector2( 0, 12 )
-collision_mask = 8
+collision_mask = 24
 
 [node name="raycast2" type="RayCast2D" parent="raycasts"]
 position = Vector2( 9, 8 )
 enabled = true
 cast_to = Vector2( 0, 12 )
-collision_mask = 8
+collision_mask = 24
 
 [node name="camera" type="Camera2D" parent="."]
 current = true
@@ -273,6 +270,6 @@ collision_mask = 2
 
 [node name="collision" type="CollisionShape2D" parent="hurtbox"]
 position = Vector2( 0, -2 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
