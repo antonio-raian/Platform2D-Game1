@@ -32,7 +32,7 @@ func _on_animation_animation_finished(anim_name):
 
 func _on_HitBox_body_entered(body):
 	hitted = true
-	body.vel.y -= 300
+	body.vel.y = -300
 	health -= 1
 	yield(get_tree().create_timer(0.2), "timeout")
 	hitted = false

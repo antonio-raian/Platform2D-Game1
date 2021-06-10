@@ -7,14 +7,18 @@ var gravity = 1000
 var jump_force = -520
 var is_grounded
 var health = 5
+var max_health = 5
 var hurted = false
 var knock_dir = 1
 var knock_force = 1000
 
 onready var raycasts = $raycasts
 
+signal change_life(health);
+
 func _ready():
-	pass 
+	connect("change_life", get_parent().get_node("HUD/HBoxContainer/life"), "_on_change_life")
+	emit_signal("change_life", max_health)
 
 func _physics_process(delta):
 	vel.y += gravity * delta
@@ -72,6 +76,9 @@ func _knocback():
 func _on_hurtbox_body_entered(body):
 	hurted = true;
 	health -= 1
+	
+	emit_signal("change_life", health)
+	
 	_knocback()
 	get_node("hurtbox/collision").set_deferred("disabled", true)
 	yield(get_tree().create_timer(0.5), "timeout")

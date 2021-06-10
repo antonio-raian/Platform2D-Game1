@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/Pixel Adventure 1/Main Characters/Virtual Guy/Hit (32x32).png" type="Texture" id=5]
 [ext_resource path="res://Assets/Pixel Adventure 1/Main Characters/Virtual Guy/Fall (32x32).png" type="Texture" id=6]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=8]
 resource_name = "fall"
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite:texture")
@@ -87,7 +87,7 @@ tracks/2/keys = {
 "values": [ 7 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=9]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite:frame")
@@ -126,7 +126,7 @@ tracks/2/keys = {
 "values": [ 11 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
@@ -211,7 +211,7 @@ extents = Vector2( 10, 12.3732 )
 extents = Vector2( 11, 8 )
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 0, -14 )
+position = Vector2( 0.0936432, -12.8763 )
 collision_mask = 94
 script = ExtResource( 1 )
 __meta__ = {
@@ -225,26 +225,26 @@ hframes = 12
 
 [node name="animation" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/fall = SubResource( 1 )
+anims/fall = SubResource( 8 )
 anims/hit = SubResource( 2 )
-anims/idle = SubResource( 3 )
-anims/jump = SubResource( 4 )
+anims/idle = SubResource( 9 )
+anims/jump = SubResource( 10 )
 anims/run = SubResource( 5 )
 
 [node name="colision" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 1 )
+position = Vector2( 0.655506, 1.21737 )
 shape = SubResource( 6 )
 
 [node name="raycasts" type="Node2D" parent="."]
 
 [node name="raycast" type="RayCast2D" parent="raycasts"]
-position = Vector2( -6, 8 )
+position = Vector2( -5.99323, 10.0199 )
 enabled = true
 cast_to = Vector2( 0, 12 )
 collision_mask = 24
 
 [node name="raycast2" type="RayCast2D" parent="raycasts"]
-position = Vector2( 9, 8 )
+position = Vector2( 8.53178, 9.40466 )
 enabled = true
 cast_to = Vector2( 0, 12 )
 collision_mask = 24
